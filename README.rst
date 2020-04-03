@@ -32,7 +32,7 @@
 * `Arduino IDE`_编译并将生成的 Sketch 上传到 DigiSpark
 * 必须配置 Arduino IDE 来对 DigiSpark 进行编程，请遵循本指南_。
 * 一个、两个或多个DigiSparks;-)
-* DuckEncoder_从 DuckyScript 生成一个原始的有效载荷，如果你想远离Java，请使用 "我的 DuckEncoder 的 python 端口<https://github.com/mame82/duckencoder.py>`_。
+* DuckEncoder_从 DuckyScript 生成一个原始的有效载荷，如果你想远离Java，请使用 `"我的 DuckEncoder 的 python 端口<https://github.com/mame82/duckencoder.py>`_。
 * Python 2的安装
 
 .. _Arduino IDE: https://www.arduino.cc/en/main/software
