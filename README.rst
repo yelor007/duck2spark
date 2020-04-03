@@ -5,7 +5,7 @@
 该项目提供了一个python脚本，能够将 DuckEncoder 生成的有效载荷转换为 Arduino Sketch 源的 DigiSpark。
 这个脚本解决了两个问题：
 
-* 现有的解决方案和教程在 DigiSpark 上模拟 RuberDucky 的解决方案和教程都是由于对非美国语言的键盘布局支持不足。这个问题可以通过 "外包 "给DuckEncoder_ 来解决，它支持多种键盘布局。
+* 现有的解决方案和教程在 DigiSpark 上模拟 RuberDucky 的解决方案和教程都是由于对非美国语言的键盘布局支持不足。这个问题可以通过 "外包 " 给 DuckEncoder_ 来解决，它支持多种键盘布局。
 * 由于 DigiKeyboard.print() 和 DigiKeyboard.println() 的解决方案受限于 DigiSparks 的 RAM 限制（小于512字节），因此使用DigiKeyboard.print() 和 DigiKeyboard.println() 的解决方案会受到字符串大小的限制。这可以通过将有效载荷存储在 FLASH 内存中来解决。
 
 附加功能
@@ -18,48 +18,48 @@
 
 .. _DuckEncoder: https://github.com/hak5darren/USB-Rubber-Ducky/blob/master/Encoder/encoder.jar
 
-Project files
+项目文件
 =============
 
-* duck2spark.py - Main script
-* README.rst - this file
-* example.sh - Example script building a payload by running DuckEncoder followed by duck2spark.py (encoder.jar has to be present)
-* example.duck - RubberDucky script with test cases used by example.sh
+* duck2spark.py - 主脚本
+* README.rst - 这个文件
+* example.sh - 通过运行 Duck2spark.py 后运行 DuckEncoder 建立一个有效载荷的脚本示例（编码器.jar必须存在）。
+* example.ducky - RubberDucky 脚本，包含 example.sh 所使用的测试用例。
 
-Requirements
+配置要求
 ============
 
-* `Arduino IDE`_ to compile and upload the generated Sketch to DigiSpark
-* Arduino IDE has to be configured to program a DigiSpark, following this guide_
-* One, two or many DigiSparks ;-)
-* DuckEncoder_ to generate a raw payload from DuckyScript, if you want to stay away from Java use `my python port of DuckEncoder <https://github.com/mame82/duckencoder.py>`_
-* Python 2 installation
+* `Arduino IDE`_编译并将生成的 Sketch 上传到 DigiSpark
+* 必须配置 Arduino IDE 来对 DigiSpark 进行编程，请遵循本指南_。
+* 一个、两个或多个DigiSparks;-)
+* DuckEncoder_从 DuckyScript 生成一个原始的有效载荷，如果你想远离Java，请使用 "我的 DuckEncoder 的 python 端口<https://github.com/mame82/duckencoder.py>`_。
+* Python 2的安装
 
 .. _Arduino IDE: https://www.arduino.cc/en/main/software
 .. _guide: https://digistump.com/wiki/digispark/tutorials/connecting
 .. _DuckEncoder: https://github.com/hak5darren/USB-Rubber-Ducky/blob/master/Encoder/encoder.jar
 
 
-Usage
+使用方法
 =====
 
-#. Generate a DuckyScript ``test.duck`` you want to use as output::
+#. 生成一个 DuckyScript ``test.duck``你想用它作为输出：:
 
 	echo "STRING Hello World" > test.duck
 
-#. Compile the script using DuckEncoder with your keyboard layout (de in example) or use `my python port <https://github.com/mame82/duckencoder.py>`_::
+#. 用 DuckEncoder 编译脚本，用你的键盘布局（例子中的de）或使用 `my python port <https://github.com/mame82/duckencoder.py>`_::
 
 	java -jar encoder.jar -i test.duck -o raw.bin -l de
 
-#. Use duck2spark.py to convert into Arduino Sketch (options for single run, 2 seconds startup delay)::
+#. 使用 duck2spark.py 将其转换为 Arduino Sketch（选项为单次运行，2秒启动延迟）：:
 	
 	duck2spark.py -i raw.bin -l 1 -f 2000 -o sketch.ino
 
-#. After setting up the Arduino IDE load the example "DigisparkKeyboard" and replace the Sketch source by the one saved to ``sketch.ino`` .
+#. 设置好 Arduino IDE 后，加载 "DigisparkKeyboard " 的例子，并将 Sketch 源码替换成保存在 `sketch.ino`` 中的源码。
 
-To get help on duck2spark.py run ``duck2spark.py -h``
+要获得帮助，请执行 ``duck2spark.py -h````。
 
-Getting started with DuckyScript
+开始使用 DuckyScript
 --------------------------------
 
 Here's an introduction_ to DuckyScript
