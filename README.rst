@@ -69,7 +69,7 @@ Here's an introduction_ to DuckyScript
 使用 DuckEncoder 与 duck2spark 的附加提示
 --------------------------------------------------------------------
 
-* DuckEncoder 在编码 "GUI "或 "WINDOWS " 键时有一个问题，没有附加键。Windows 上常见的情况是 "GUI r " 等键的组合，但仅使用 "GUI " 会产生不正确的字符 ``e```` 输出。这个问题已经解决了`这里<https://github.com/hak5darren/USB-Rubber-Ducky/issues/51>`_https://github.com/hak5darren/USB-Rubber-Ducky/issues/51。由于希望会有一个补丁 duck2spark 不处理这个问题。事实上，在一个已经编码的脚本中无法区分 "GUI "键和 "e "键。Encoder.java 的补丁版本可以在这里找到 <https://github.com/mame82/USB-Rubber-Ducky/tree/GUI-Key-fix/Encoder/src>`https://github.com/mame82/USB-Rubber-Ducky/tree/GUI-Key-fix/Encoder/src。
+* DuckEncoder 在编码 "GUI "或 "WINDOWS " 键时有一个问题，没有附加键。Windows 上常见的情况是 "GUI r " 等键的组合，但仅使用 "GUI " 会产生不正确的字符 ``e`` 输出。这个问题已经解决了`这里<https://github.com/hak5darren/USB-Rubber-Ducky/issues/51>`_https://github.com/hak5darren/USB-Rubber-Ducky/issues/51。由于希望会有一个补丁 duck2spark 不处理这个问题。事实上，在一个已经编码的脚本中无法区分 "GUI "键和 "e "键。Encoder.java 的补丁版本可以在这里找到 <https://github.com/mame82/USB-Rubber-Ducky/tree/GUI-Key-fix/Encoder/src>`https://github.com/mame82/USB-Rubber-Ducky/tree/GUI-Key-fix/Encoder/src。
 
 * 在 DuckyScript 中使用长的延迟会导致大的有效载荷，因为超过 250 毫秒的延迟会被分割成多个延迟，每个延迟最多只有 250 毫秒。每个延迟都会在最终的有效载荷中消耗 2 个字节。由于 digispark 的内存有限，建议使用 ``duck2spark的`` 延迟选项。Duck2spark 依赖于 DigiKeyboard.delay()，在内存消耗方面更加友好。
 
