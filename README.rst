@@ -66,11 +66,11 @@ Here's an introduction_ to DuckyScript
 
 .. _introduction: http://usbrubberducky.com/?duckyscript#!duckyscript.md
 
-Additional Hints on using DuckEncoder in conjunction with duck2spark
+使用 DuckEncoder 与 duck2spark 的附加提示
 --------------------------------------------------------------------
 
-* DuckEncoder has an issue encoding "GUI" or "WINDOWS" key without an additional key. The common scenario on Windows is a key combination like "GUI r", but using "GUI" alone would produce the incorrect character ``e`` as output. The issue is adressed `here <https://github.com/hak5darren/USB-Rubber-Ducky/issues/51>`_. As there hopefully will be a patch duck2spark doesn't handle this issue. In fact it isn't possible to distinguish between "GUI" key and "e" key in an already encoded script. A patched version of Encoder.java could be found `here <https://github.com/mame82/USB-Rubber-Ducky/tree/GUI-Key-fix/Encoder/src>`_.
+* DuckEncoder 在编码 "GUI "或 "WINDOWS " 键时有一个问题，没有附加键。Windows 上常见的情况是 "GUI r " 等键的组合，但仅使用 "GUI " 会产生不正确的字符 ``e```` 输出。这个问题已经解决了`这里<https://github.com/hak5darren/USB-Rubber-Ducky/issues/51>`_https://github.com/hak5darren/USB-Rubber-Ducky/issues/51。由于希望会有一个补丁 duck2spark 不处理这个问题。事实上，在一个已经编码的脚本中无法区分 "GUI "键和 "e "键。Encoder.java 的补丁版本可以在这里找到 <https://github.com/mame82/USB-Rubber-Ducky/tree/GUI-Key-fix/Encoder/src>`https://github.com/mame82/USB-Rubber-Ducky/tree/GUI-Key-fix/Encoder/src。
 
-* Using long delays in a DuckyScript results in big payloads, as delays longer than 250 milliseconds are split up into multiple delays, with a maximum of 250 milliseconds each. Each of these delays consumes 2 bytes in the final payload. As the memory of digispark is far more limited, it is suggested to use ``duck2spark's`` delay options instead. Duck2spark relies on DigiKeyboard.delay() and is more friendly in terms of memory consumption.
+* 在 DuckyScript 中使用长的延迟会导致大的有效载荷，因为超过 250 毫秒的延迟会被分割成多个延迟，每个延迟最多只有 250 毫秒。每个延迟都会在最终的有效载荷中消耗 2 个字节。由于 digispark 的内存有限，建议使用 ``duck2spark的`` 延迟选项。Duck2spark 依赖于 DigiKeyboard.delay()，在内存消耗方面更加友好。
 
-* Using the "PREPEAT <N>" instruction in DuckyScript results in repeating the whole key sequence of the former command and thus consumes <N> times as much memory in the final payload. Again, as Digispark is short on memory, it is suggested to use ``duck2spark's`` loop option whenever possible. Printing out a 10 character string 500 times by using "REPEAT 500" results in a payload 10000 bytes in size, which is to large for Digispark. Encoding a DuckyScript with a single 10 character string consumes only 20 bytes and could be combined with ``duck2spark.py -l 500`` to achieve a 500 times repetition without further memory consumption.
+* 在 DuckyScript 中使用 "PREPEAT <N>" 指令，会导致重复前一条指令的整个按键序列，从而在最终的有效载荷中消耗<N>倍的内存。同样，由于 Digispark 的内存不足，建议尽可能使用 ``duck2spark 的`` 循环选项。使用 "repeat 500 " 打印出一个 10 个字符的字符串 500 次，会产生一个 10000 字节的有效载荷，这对 Digispark 来说太大了。用一个10个字符的 DuckyScript 编码一个 DuckyScript 只消耗 20 个字节，可以与 ``duck2spark.py -l 500`` 结合起来，实现 500 次重复，而不需要进一步消耗内存。
