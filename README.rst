@@ -55,9 +55,9 @@
 	
 	duck2spark.py -i raw.bin -l 1 -f 2000 -o sketch.ino
 
-#. 设置好 Arduino IDE 后，加载 "DigisparkKeyboard " 的例子，并将 Sketch 源码替换成保存在 `sketch.ino`` 中的源码。
+#. 设置好 Arduino IDE 后，加载 "DigisparkKeyboard " 的例子，并将 Sketch 源码替换成保存在 ``sketch.ino`` 中的源码。
 
-要获得帮助，请执行 ``duck2spark.py -h````。
+要获得帮助，请执行 ``duck2spark.py -h``。
 
 开始使用 DuckyScript
 --------------------------------
